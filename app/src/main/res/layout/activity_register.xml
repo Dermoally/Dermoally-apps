@@ -8,6 +8,7 @@
     android:orientation="vertical"
     android:padding="20dp"
     android:gravity="center"
+    android:id="@+id/main"
     tools:context=".view.RegisterActivity">
 
     <TextView
