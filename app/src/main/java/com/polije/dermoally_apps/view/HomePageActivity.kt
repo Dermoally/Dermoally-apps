@@ -25,7 +25,7 @@ class HomePageActivity : AppCompatActivity() {
 
         binding.bottomNavView.background = null
         binding.bottomNavView.menu.getItem(2).isEnabled = false
-        binding.floatingButton.setColorFilter(Color.parseColor("#f6f3ee"))
+        binding.floatingButton.setColorFilter(Color.parseColor("#020852"))
 
         replaceFragment(HomeFragment())
 
