@@ -35,7 +35,6 @@ class HomePageActivity : AppCompatActivity() {
                 R.id.ic_setting -> replaceFragment(SettingFragment())
                 R.id.ic_fav -> replaceFragment(FavoriteFragment())
                 R.id.ic_history -> replaceFragment(HistoryFragment())
-
             }
             true
         }
