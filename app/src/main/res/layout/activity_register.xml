@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_primary"
+    android:background="@color/background_soft_grey_primary"
     android:orientation="vertical"
     android:padding="20dp"
     android:gravity="center"
@@ -48,7 +48,7 @@
         android:layout_marginBottom="10dp"
         />
     <EditText
-        android:id="@+id/et_username_login"
+        android:id="@+id/et_username_register"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="Enter your username"
@@ -56,6 +56,8 @@
         android:inputType="textPersonName"
         android:fontFamily="@font/poppinsregular"
         android:textSize="12sp"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:background="@drawable/custom_edit_text"/>
     <TextView
         android:layout_width="wrap_content"
@@ -69,13 +71,15 @@
         android:layout_marginBottom="10dp"
         />
     <EditText
-        android:id="@+id/et_email_login"
+        android:id="@+id/et_email_register"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="Enter your email address"
         android:paddingHorizontal="10dp"
         android:fontFamily="@font/poppinsregular"
         android:textSize="12sp"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:inputType="textEmailAddress"
         android:background="@drawable/custom_edit_text"/>
     <TextView
@@ -90,7 +94,7 @@
         android:layout_marginBottom="10dp"
         />
     <EditText
-        android:id="@+id/et_password_login"
+        android:id="@+id/et_password_register"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="Enter your password"
@@ -98,8 +102,12 @@
         android:fontFamily="@font/poppinsregular"
         android:textSize="12sp"
         android:inputType="textPassword"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:drawableRight="@drawable/ic_baseline_visibility_off_24"
         android:background="@drawable/custom_edit_text"/>
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_register"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Register"
@@ -110,45 +118,6 @@
         android:background="@drawable/custom_button"
         android:layout_marginTop="25dp"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            android:background="@color/background_grey"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="OR"
-            android:textColor="@color/background_grey"
-            android:fontFamily="@font/poppinsregular"
-            android:layout_weight="1"
-            android:gravity="center"
-            />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            android:background="@color/background_grey"/>
-
-    </LinearLayout>
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:background="@drawable/custom_bg_google"
-        android:drawableLeft="@drawable/google"
-        android:drawablePadding="10dp"
-        android:paddingHorizontal="20dp"
-        android:text="Continue with Google"
-        android:textSize="12sp"
-        android:textAllCaps="false"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/poppinsbold"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -162,6 +131,7 @@
             android:textSize="12sp"
             android:textColor="@color/background_grey"/>
         <TextView
+            android:id="@+id/tv_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Log in"
