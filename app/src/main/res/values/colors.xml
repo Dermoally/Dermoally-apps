@@ -12,4 +12,6 @@
     <color name="background_grey">#6c7278</color>
     <color name="background_soft_grey">#DFE0E0</color>
     <color name="background_soft_grey_primary">#ececee</color>
+    <color name="red">#9D0000</color>
+
 </resources>
