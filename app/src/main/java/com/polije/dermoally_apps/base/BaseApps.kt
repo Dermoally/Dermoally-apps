@@ -1,6 +1,7 @@
 package com.polije.dermoally_apps.base
 
 import android.app.Application
+import com.polije.dermoally_apps.data.injection.dataStoreModule
 import com.polije.dermoally_apps.utils.koinModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger

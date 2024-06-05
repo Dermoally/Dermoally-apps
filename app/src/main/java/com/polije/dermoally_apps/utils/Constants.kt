@@ -1,12 +1,14 @@
 package com.polije.dermoally_apps.utils
 
 import com.polije.dermoally_apps.BuildConfig
+import com.polije.dermoally_apps.data.injection.dataStoreModule
 import com.polije.dermoally_apps.data.injection.networkModule
 import com.polije.dermoally_apps.data.injection.repositoryModule
 import com.polije.dermoally_apps.data.injection.viewModelModule
 
 
 val koinModules = listOf(
+    dataStoreModule,
     networkModule,
     repositoryModule,
     viewModelModule,

@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         viewModel.isLogin.observe(this, Observer { isLoggedIn ->
             if (isLoggedIn) {
                 startActivity(Intent(this@MainActivity, HomePageActivity::class.java))
