@@ -8,12 +8,17 @@ import android.text.InputType
 import android.view.MotionEvent
 import android.view.View
 import androidx.activity.enableEdgeToEdge
+import org.koin.android.ext.android.inject
 import androidx.core.content.res.ResourcesCompat
 import com.polije.dermoally_apps.R
 import com.polije.dermoally_apps.databinding.ActivityLoginBinding
+import com.polije.dermoally_apps.viewmodels.LoginViewModel
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
+
     private lateinit var binding: ActivityLoginBinding
+    private val viewModel: LoginViewModel by inject()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

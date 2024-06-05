@@ -11,9 +11,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.polije.dermoally_apps.R
 import com.polije.dermoally_apps.databinding.ActivityRegisterBinding
+import com.polije.dermoally_apps.viewmodels.RegisterViewModel
+import org.koin.android.ext.android.inject
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
+
     private lateinit var binding: ActivityRegisterBinding
+    private val viewModel: RegisterViewModel by inject()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

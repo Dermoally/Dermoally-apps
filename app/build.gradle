@@ -18,7 +18,21 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField(
+                    "String", "API_URL", "\"https://example.com/\""
+            )
+            buildConfigField(
+                    "String", "API_KEY", "\"\""
+            )
+        }
         release {
+            buildConfigField(
+                    "String", "API_URL", "\"https://example.com/\""
+            )
+            buildConfigField(
+                    "String", "API_KEY", "\"\""
+            )
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -50,4 +64,17 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
 
+    // Retrofit + Moshi + Interceptor
+    implementation libs.converter.moshi
+    implementation libs.retrofit
+    implementation libs.moshi
+    implementation libs.okhttp.interceptor
+
+    //lifecycle
+    implementation libs.lifecycle.viewmodel
+    implementation libs.lifecycle.livedata
+
+    //koin DI
+    implementation libs.koin.android
+    implementation libs.koin.androidx.nav
 }

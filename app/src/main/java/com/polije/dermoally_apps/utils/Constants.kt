@@ -1,0 +1,17 @@
+package com.polije.dermoally_apps.utils
+
+import com.polije.dermoally_apps.BuildConfig
+import com.polije.dermoally_apps.data.injection.networkModule
+import com.polije.dermoally_apps.data.injection.repositoryModule
+
+
+val koinModules = listOf(
+    networkModule,
+    repositoryModule,
+)
+
+const val PREFS_NAME: String = "auth_pref"
+const val TOKEN_KEY: String = "auth_token"
+const val NAME_KEY: String = "auth_name"
+
+const val API_URL = BuildConfig.API_URL

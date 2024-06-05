@@ -10,6 +10,11 @@ activity = "1.8.0"
 constrainLayout = "2.1.4"
 appCompact = "1.6.1"
 androidMaterial = "1.12.0"
+retrofit = "2.11.0"
+squareupMoshi = "1.15.1"
+okhttpInterceptor = "4.12.0"
+lifecycle = "2.8.0"
+koin = "3.5.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -21,6 +26,14 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constrainLayout" }
 androidx-appcompact = { group = "androidx.appcompat", name = "appcompat", version.ref = "appCompact" }
 com-google-android-material = { group = "com.google.android.material", name = "material", version.ref = "androidMaterial" }
+converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+moshi = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "squareupMoshi" }
+okhttp-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpInterceptor" }
+lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-androidx-nav = { group = "io.insert-koin", name = "koin-androidx-navigation", version.ref = "koin" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
