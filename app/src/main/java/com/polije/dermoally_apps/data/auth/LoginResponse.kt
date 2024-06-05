@@ -21,6 +21,9 @@ data class LoginResult(
     @Json(name = "name")
     val name: String,
 
+    @Json(name = "email")
+    val email: String,
+
     @Json(name = "userId")
     val userId: String,
 

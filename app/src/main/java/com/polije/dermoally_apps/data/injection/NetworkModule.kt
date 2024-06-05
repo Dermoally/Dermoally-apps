@@ -1,9 +1,9 @@
 package com.polije.dermoally_apps.data.injection
 
 import com.polije.dermoally_apps.data.network.ApiServices
+import com.polije.dermoally_apps.data.prefs.UserPrefs
 import com.polije.dermoally_apps.utils.API_URL
 import com.polije.dermoally_apps.utils.InterceptorHeader
-import com.polije.dermoally_apps.utils.PrefsManager
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Interceptor
@@ -15,7 +15,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 val networkModule = module {
 
-    single { PrefsManager(get()) }
+    single { UserPrefs.getInstance(get()) }
     single {
         OkHttpClient.Builder()
             .addInterceptor(headerInterceptor(get()))
@@ -41,9 +41,11 @@ val networkModule = module {
     }
 }
 
-private fun headerInterceptor(preferenceManager: PrefsManager): Interceptor {
+private fun headerInterceptor(userPrefs: UserPrefs): Interceptor {
     val headers = HashMap<String, String>()
     headers["Content-Type"] = "application/json"
 
-    return InterceptorHeader(headers, preferenceManager)
+    val endpointsRequiringAuth = listOf("/history")
+
+    return InterceptorHeader(headers, userPrefs, endpointsRequiringAuth)
 }
