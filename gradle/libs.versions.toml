@@ -16,6 +16,8 @@ okhttpInterceptor = "4.12.0"
 lifecycle = "2.8.0"
 koin = "3.5.3"
 dataStore = "1.0.0"
+glide = "4.16.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -35,6 +37,7 @@ lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin-androidx-nav = { group = "io.insert-koin", name = "koin-androidx-navigation", version.ref = "koin" }
 datastore-prefs = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "dataStore" }
+bumptech-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
