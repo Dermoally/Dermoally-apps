@@ -23,8 +23,6 @@ interface ApiServices {
 
     @GET("history")
     suspend fun getAllHistory(
-        @Query("page") page: Int?,
-        @Query("size") size: Int?,
     ): HistoryResponse
 
 }

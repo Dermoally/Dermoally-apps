@@ -8,7 +8,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class HistoryResponse(
 
-    @Json(name = "listStory")
+    @Json(name = "listHistory")
     val listStory: List<History>,
 
     @Json(name = "error")
@@ -26,11 +26,11 @@ data class History(
     @Json(name = "createdAt")
     val createdAt: String? = null,
 
-    @Json(name = "name")
-    val name: String? = null,
+    @Json(name = "disease")
+    val disease: String? = null,
 
-    @Json(name = "description")
-    val description: String? = null,
+    @Json(name = "accuracy")
+    val accuracy: String? = null,
 
     @Json(name = "id")
     val id: String,
