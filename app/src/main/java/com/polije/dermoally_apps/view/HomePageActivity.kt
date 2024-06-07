@@ -1,5 +1,6 @@
 package com.polije.dermoally_apps.view
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -37,6 +38,10 @@ class HomePageActivity : AppCompatActivity() {
                 R.id.ic_history -> replaceFragment(HistoryFragment())
             }
             true
+        }
+
+        binding.floatingButton.setOnClickListener{
+            startActivity(Intent(this, ScanPageActivity::class.java))
         }
     }
 
