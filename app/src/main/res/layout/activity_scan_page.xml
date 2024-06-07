@@ -12,13 +12,13 @@
         android:id="@+id/frameImageScan"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_transparant"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_transparant"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.846">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imgScan"
@@ -91,6 +91,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
         android:fontFamily="@font/poppinsregular"
         android:text="Make sure there is nothing blocking your face"
         android:textColor="@color/black"
@@ -98,8 +99,7 @@
         app:layout_constraintEnd_toEndOf="@+id/btnDone"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/btnDone"
-        app:layout_constraintTop_toBottomOf="@+id/btnDone"
-        app:layout_constraintVertical_bias="0.529" />
+        app:layout_constraintTop_toBottomOf="@+id/frameImageScan" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
