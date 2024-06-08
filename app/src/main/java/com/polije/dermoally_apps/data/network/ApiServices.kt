@@ -4,11 +4,10 @@ import com.polije.dermoally_apps.data.auth.LoginRequest
 import com.polije.dermoally_apps.data.auth.LoginResponse
 import com.polije.dermoally_apps.data.auth.RegisterRequest
 import com.polije.dermoally_apps.data.auth.RegisterResponse
-import com.polije.dermoally_apps.data.history.HistoryResponse
+import com.polije.dermoally_apps.data.disease.HistoryResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.Query
 
 interface ApiServices {
     @POST("register")
@@ -23,6 +22,10 @@ interface ApiServices {
 
     @GET("history")
     suspend fun getAllHistory(
+    ): HistoryResponse
+
+    @GET("favorite")
+    suspend fun getAllFavorite(
     ): HistoryResponse
 
 }

@@ -1,10 +1,10 @@
-package com.polije.dermoally_apps.viewmodels
+package com.polije.dermoally_apps.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.polije.dermoally_apps.data.history.HistoryResponse
+import com.polije.dermoally_apps.data.disease.HistoryResponse
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.data.repository.HistoryRepository
 import kotlinx.coroutines.launch

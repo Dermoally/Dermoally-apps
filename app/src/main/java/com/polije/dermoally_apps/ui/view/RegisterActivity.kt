@@ -1,4 +1,4 @@
-package com.polije.dermoally_apps.view
+package com.polije.dermoally_apps.ui.view
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.polije.dermoally_apps.R
 import com.polije.dermoally_apps.databinding.ActivityRegisterBinding
-import com.polije.dermoally_apps.viewmodels.RegisterViewModel
+import com.polije.dermoally_apps.ui.viewmodels.RegisterViewModel
 import org.koin.android.ext.android.inject
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {

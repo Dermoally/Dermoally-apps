@@ -6,15 +6,15 @@ import com.polije.dermoally_apps.data.network.ApiStatus
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-interface HistoryRepository {
-    fun getAllHistory(): Flow<ApiStatus<HistoryResponse>>
+interface FavoriteRepository {
+    fun getAllFavorite(): Flow<ApiStatus<HistoryResponse>>
 }
 
-class HistoryRepositoryImpl(private val apiServices: ApiServices) : HistoryRepository {
-    override fun getAllHistory(): Flow<ApiStatus<HistoryResponse>> = flow {
+class FavoriteRepositoryImpl(private val apiServices: ApiServices) : FavoriteRepository {
+    override fun getAllFavorite(): Flow<ApiStatus<HistoryResponse>> = flow {
         try {
             emit(ApiStatus.Loading)
-            val response = apiServices.getAllHistory()
+            val response = apiServices.getAllFavorite()
             if (!response.error) {
                 emit(ApiStatus.Success(response))
             } else {

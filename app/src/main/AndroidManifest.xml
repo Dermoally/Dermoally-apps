@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".base.BaseApps"
         android:allowBackup="true"
@@ -14,20 +16,23 @@
         android:theme="@style/Theme.DermoAllyapps"
         tools:targetApi="31">
         <activity
-            android:name=".view.ResultActivity"
+            android:name=".ui.view.DetailFavoriteActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ScanPageActivity"
+            android:name=".ui.view.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".view.HomePageActivity"
+            android:name=".ui.view.ScanPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.HomePageActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan|stateHidden"/>
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".view.RegisterActivity"
+            android:name=".ui.view.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".ui.view.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

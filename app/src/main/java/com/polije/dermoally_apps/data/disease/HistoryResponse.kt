@@ -1,9 +1,8 @@
-package com.polije.dermoally_apps.data.history
+package com.polije.dermoally_apps.data.disease
 
-import android.os.Parcelable
-import androidx.annotation.NonNull
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 @JsonClass(generateAdapter = true)
 data class HistoryResponse(
@@ -35,4 +34,7 @@ data class History(
     @Json(name = "id")
     val id: String,
 
-)
+    @Json(name = "isFavorite")
+    val isFavorite: String,
+
+): Serializable
