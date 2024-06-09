@@ -1,4 +1,4 @@
-package com.polije.dermoally_apps.viewmodels
+package com.polije.dermoally_apps.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

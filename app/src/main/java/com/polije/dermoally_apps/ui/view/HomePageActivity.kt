@@ -1,4 +1,4 @@
-package com.polije.dermoally_apps.view
+package com.polije.dermoally_apps.ui.view
 
 import android.content.Intent
 import android.graphics.Color
@@ -10,10 +10,10 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.polije.dermoally_apps.R
 import com.polije.dermoally_apps.databinding.ActivityHomePageBinding
-import com.polije.dermoally_apps.fragment.FavoriteFragment
-import com.polije.dermoally_apps.fragment.HistoryFragment
-import com.polije.dermoally_apps.fragment.HomeFragment
-import com.polije.dermoally_apps.fragment.SettingFragment
+import com.polije.dermoally_apps.ui.fragment.FavoriteFragment
+import com.polije.dermoally_apps.ui.fragment.HistoryFragment
+import com.polije.dermoally_apps.ui.fragment.HomeFragment
+import com.polije.dermoally_apps.ui.fragment.SettingFragment
 
 class HomePageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomePageBinding

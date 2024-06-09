@@ -4,9 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment.HistoryFragment">
+    tools:context=".ui.fragment.HistoryFragment">
 
     <LinearLayout
+        android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -36,21 +37,15 @@
                 android:textColor="@color/background_grey"/>
 
         </LinearLayout>
-        <FrameLayout
-            android:id="@+id/userProfile"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center|end"
-            android:background="@drawable/frame_transparent"
-            >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_search_24"/>
-        </FrameLayout>
-    </LinearLayout>
 
+    </LinearLayout>
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/custom_edit_text"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.polije.dermoally_apps.fragment
+package com.polije.dermoally_apps.ui.fragment
 
 import android.os.Build
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.polije.dermoally_apps.view
+package com.polije.dermoally_apps.ui.view
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -12,7 +12,7 @@ import org.koin.android.ext.android.inject
 import androidx.core.content.res.ResourcesCompat
 import com.polije.dermoally_apps.R
 import com.polije.dermoally_apps.databinding.ActivityLoginBinding
-import com.polije.dermoally_apps.viewmodels.LoginViewModel
+import com.polije.dermoally_apps.ui.viewmodels.LoginViewModel
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 

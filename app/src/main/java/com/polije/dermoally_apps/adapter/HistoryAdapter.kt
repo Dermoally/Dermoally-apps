@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.polije.dermoally_apps.adapter.viewholder.HistoryViewHolder
-import com.polije.dermoally_apps.data.history.History
+import com.polije.dermoally_apps.data.disease.History
 import com.polije.dermoally_apps.databinding.ItemHistoryBinding
 
 class HistoryAdapter(private var histories: List<History>) : RecyclerView.Adapter<HistoryViewHolder>() {

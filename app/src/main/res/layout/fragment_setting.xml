@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_soft_grey_primary"
-    tools:context=".fragment.SettingFragment">
+    tools:context=".ui.fragment.SettingFragment">
 
    <LinearLayout
        android:layout_width="match_parent"

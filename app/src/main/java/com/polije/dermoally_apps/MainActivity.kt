@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.Observer
-import com.polije.dermoally_apps.view.HomePageActivity
-import com.polije.dermoally_apps.view.LoginActivity
-import com.polije.dermoally_apps.viewmodels.AuthViewModel
-import com.polije.dermoally_apps.viewmodels.LoginViewModel
+import com.polije.dermoally_apps.ui.view.HomePageActivity
+import com.polije.dermoally_apps.ui.view.LoginActivity
+import com.polije.dermoally_apps.ui.viewmodels.AuthViewModel
+import com.polije.dermoally_apps.ui.viewmodels.LoginViewModel
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
