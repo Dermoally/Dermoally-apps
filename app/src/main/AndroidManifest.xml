@@ -16,6 +16,15 @@
         android:theme="@style/Theme.DermoAllyapps"
         tools:targetApi="31">
         <activity
+            android:name=".ui.view.OurTeamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.AppInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.AboutActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.view.DetailFavoriteActivity"
             android:exported="false" />
         <activity
