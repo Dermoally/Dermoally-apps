@@ -9,10 +9,15 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo_app" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DermoAlly."
+        android:text="DermoAlly"
         android:textColor="@color/background_blue"
         android:fontFamily="@font/poppinsbold"
         android:textSize="20sp"/>
