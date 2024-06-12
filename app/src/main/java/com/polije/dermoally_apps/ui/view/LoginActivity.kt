@@ -31,7 +31,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private fun onBindView() {
         binding.buttonLogin.setOnClickListener(this)
         binding.tvRegister.setOnClickListener(this)
-        binding.buttonLoginGoogle.setOnClickListener(this)
         binding.etPasswordLogin.setOnTouchListener { _, event ->
             val drawableEnd = 2
             if (event.action == MotionEvent.ACTION_UP &&
