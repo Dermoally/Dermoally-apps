@@ -11,6 +11,7 @@ import com.polije.dermoally_apps.R
 import com.polije.dermoally_apps.databinding.FragmentSettingBinding
 import com.polije.dermoally_apps.ui.view.AboutActivity
 import com.polije.dermoally_apps.ui.view.AppInfoActivity
+import com.polije.dermoally_apps.ui.view.EditProfileActivity
 import com.polije.dermoally_apps.ui.view.HomePageActivity
 import com.polije.dermoally_apps.ui.view.OurTeamActivity
 
@@ -36,6 +37,10 @@ class SettingFragment : Fragment() {
         }
         binding.ourTeam.setOnClickListener {
             val intent = Intent(requireContext(), OurTeamActivity::class.java)
+            startActivity(intent)
+        }
+        binding.editProfile.setOnClickListener {
+            val intent = Intent(requireContext(), EditProfileActivity::class.java)
             startActivity(intent)
         }
 
