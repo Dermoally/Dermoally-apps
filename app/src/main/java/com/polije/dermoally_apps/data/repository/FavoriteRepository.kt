@@ -1,5 +1,6 @@
 package com.polije.dermoally_apps.data.repository
 
+import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
 import com.polije.dermoally_apps.data.disease.HistoryResponse
 import com.polije.dermoally_apps.data.network.ApiServices
 import com.polije.dermoally_apps.data.network.ApiStatus
@@ -7,22 +8,19 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 interface FavoriteRepository {
-    fun getAllFavorite(): Flow<ApiStatus<HistoryResponse>>
+    fun getAllFavorite(): Flow<ApiStatus<List<DiseaseDetectionResponse>>>
 }
 
 class FavoriteRepositoryImpl(private val apiServices: ApiServices) : FavoriteRepository {
-    override fun getAllFavorite(): Flow<ApiStatus<HistoryResponse>> = flow {
+    override fun getAllFavorite(): Flow<ApiStatus<List<DiseaseDetectionResponse>>> = flow {
         try {
             emit(ApiStatus.Loading)
-            val response = apiServices.getAllFavorite()
-            if (!response.error) {
-                emit(ApiStatus.Success(response))
-            } else {
-                throw Exception()
-            }
+            val response = apiServices.getAllFavoriteSkinAnalyze()
+            emit(ApiStatus.Success(response))
         } catch (e: Exception) {
             e.printStackTrace()
             emit(ApiStatus.Error(e.message.toString()))
         }
     }
+
 }

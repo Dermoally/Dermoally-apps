@@ -92,10 +92,12 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/azzan"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/baseline_account_circle_24" />
+                        android:background="@drawable/frame_profile"
+                        android:src="@drawable/azzan" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -123,10 +125,12 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/sofia"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/baseline_account_circle_24" />
+                        android:background="@drawable/frame_profile"
+                        android:src="@drawable/sofia" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -163,10 +167,12 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/tara"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/baseline_account_circle_24" />
+                        android:background="@drawable/frame_profile"
+                        android:src="@drawable/tara" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -194,9 +200,11 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/fikri"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
+                        android:background="@drawable/frame_profile"
                         android:src="@drawable/baseline_account_circle_24" />
 
                     <TextView
@@ -234,10 +242,12 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/thoriq"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/baseline_account_circle_24" />
+                        android:background="@drawable/frame_profile"
+                        android:src="@drawable/thoriq" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -307,10 +317,12 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/fatiya"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/baseline_account_circle_24" />
+                        android:background="@drawable/frame_profile"
+                        android:src="@drawable/fatiya" />
 
                     <TextView
                         android:layout_width="wrap_content"

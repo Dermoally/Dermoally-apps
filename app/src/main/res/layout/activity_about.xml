@@ -92,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="54dp"
         android:fontFamily="@font/poppinsregular"
         android:text="Copyright &#169; DermoAlly 2024"
         android:textColor="@color/background_grey"
