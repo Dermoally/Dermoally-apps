@@ -15,6 +15,7 @@ import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.databinding.ActivityRegisterBinding
 import com.polije.dermoally_apps.ui.viewmodels.RegisterViewModel
 import com.polije.dermoally_apps.utils.showToast
+import com.polije.dermoally_apps.utils.startNewActivity
 import org.koin.android.ext.android.inject
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
@@ -73,8 +74,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             binding.tvLogin -> {
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
+                startNewActivity<LoginActivity>(this)
             }
         }
     }
@@ -102,8 +102,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 is ApiStatus.Success -> {
                     binding.loadingOverlay.visibility = View.GONE
                     showToast(this, it.data.message,)
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
+                    startNewActivity<LoginActivity>(this, finishCurrent = true)
                 }
 
                 is ApiStatus.Error -> {

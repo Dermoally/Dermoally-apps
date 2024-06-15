@@ -17,20 +17,21 @@ import org.koin.core.context.GlobalContext.unloadKoinModules
 import org.koin.core.context.loadKoinModules
 
 interface AuthRepository {
-    fun login(user: LoginRequest): Flow<ApiStatus<LoginResponse>>
-    fun register(user: RegisterRequest): Flow<ApiStatus<RegisterResponse>>
+    fun login(req: LoginRequest): Flow<ApiStatus<LoginResponse>>
+    fun register(req: RegisterRequest): Flow<ApiStatus<RegisterResponse>>
     fun logout(): Boolean
 }
 
 class AuthRepositoryImpl(private val apiServices: ApiServices, private val prefs: UserPrefs) : AuthRepository {
-    override fun login(user: LoginRequest): Flow<ApiStatus<LoginResponse>> = flow {
+    override fun login(req: LoginRequest): Flow<ApiStatus<LoginResponse>> = flow {
         try {
             emit(ApiStatus.Loading)
-            val response = apiServices.login(user)
+            val response = apiServices.login(req)
             if (!response.error) {
-                val user = response.loginResult
-                prefs.saveSession(User(user.email, user.token, true))
-                reloadKoinModules()
+                response.token.let {
+                    prefs.saveSession(User(it, true))
+                    reloadKoinModules()
+                }
                 emit(ApiStatus.Success(response))
             } else {
                 emit(ApiStatus.Error(response.message))
@@ -41,11 +42,11 @@ class AuthRepositoryImpl(private val apiServices: ApiServices, private val prefs
         }
     }
 
-    override fun register(user: RegisterRequest): Flow<ApiStatus<RegisterResponse>> =
+    override fun register(req: RegisterRequest): Flow<ApiStatus<RegisterResponse>> =
         flow {
             try {
                 emit(ApiStatus.Loading)
-                val response = apiServices.register(user)
+                val response = apiServices.register(req)
                 if (!response.error) {
                     emit(ApiStatus.Success(response))
                 } else {

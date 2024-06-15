@@ -1,7 +1,9 @@
 package com.polije.dermoally_apps.utils
 
 import android.content.Context
+import android.content.Intent
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.polije.dermoally_apps.BuildConfig
 import com.polije.dermoally_apps.data.injection.dataStoreModule
 import com.polije.dermoally_apps.data.injection.networkModule
@@ -24,4 +26,11 @@ const val API_URL = "http://192.168.46.87:9000/"
 
 fun showToast(context: Context, message: String) {
     Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+}
+inline fun <reified T> startNewActivity(context: Context, finishCurrent: Boolean = false) {
+    val intent = Intent(context, T::class.java)
+    context.startActivity(intent)
+    if (finishCurrent && context is AppCompatActivity) {
+        context.finish()
+    }
 }

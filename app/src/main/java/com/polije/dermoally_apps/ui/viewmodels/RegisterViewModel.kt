@@ -14,9 +14,9 @@ class RegisterViewModel(private val repository: AuthRepository) : ViewModel() {
     private val _registerResult = MutableLiveData<ApiStatus<RegisterResponse>>()
     val registerResult: LiveData<ApiStatus<RegisterResponse>> = _registerResult
 
-    fun register(user: RegisterRequest) {
+    fun register(req: RegisterRequest) {
         viewModelScope.launch {
-            repository.register(user).collect {
+            repository.register(req).collect {
                 _registerResult.value = it
             }
         }
