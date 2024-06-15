@@ -19,6 +19,8 @@ class OurTeamActivity : AppCompatActivity() {
         binding = ActivityOurTeamBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.fawaid.setBackgroundResource(R.drawable.frame_profile)
+        binding.fawaid.setClipToOutline(true)
 
         binding.btnBack.setOnClickListener{
             startActivity(Intent(this, FragmentSettingBinding::class.java))
