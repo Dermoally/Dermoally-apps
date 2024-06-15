@@ -36,12 +36,13 @@ class HistoryFragment : Fragment() {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        skinAnalyzeAdapter = SkinAnalyzeAdapter(emptyList()) {
+            // Handle click action if needed
+            showToast(requireContext(), it.diseaseDetection.overview)
+        }
+
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = skinAnalyzeAdapter
-
-        skinAnalyzeAdapter = SkinAnalyzeAdapter(emptyList()) {
-            //handle click
-        }
 
         val face: Typeface? = ResourcesCompat.getFont(requireContext(), R.font.poppinsregular)
         val searchText = binding.searchView.findViewById<View>(androidx.appcompat.R.id.search_src_text) as TextView

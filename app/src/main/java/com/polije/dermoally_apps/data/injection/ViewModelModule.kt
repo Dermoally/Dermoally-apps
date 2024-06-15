@@ -1,6 +1,7 @@
 package com.polije.dermoally_apps.data.injection
 
 import com.polije.dermoally_apps.ui.viewmodels.AuthViewModel
+import com.polije.dermoally_apps.ui.viewmodels.HistoryViewModel
 import com.polije.dermoally_apps.ui.viewmodels.LoginViewModel
 import com.polije.dermoally_apps.ui.viewmodels.RegisterViewModel
 import com.polije.dermoally_apps.ui.viewmodels.SkinAnalyzeViewModel
@@ -12,4 +13,5 @@ val viewModelModule = module {
     viewModel { LoginViewModel(get()) }
     viewModel { RegisterViewModel(get()) }
     viewModel { SkinAnalyzeViewModel(get()) }
+    viewModel { HistoryViewModel(get()) }
 }

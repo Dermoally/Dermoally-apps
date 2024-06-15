@@ -9,6 +9,8 @@ import com.polije.dermoally_apps.data.injection.dataStoreModule
 import com.polije.dermoally_apps.data.injection.networkModule
 import com.polije.dermoally_apps.data.injection.repositoryModule
 import com.polije.dermoally_apps.data.injection.viewModelModule
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 val koinModules = listOf(
@@ -32,5 +34,17 @@ inline fun <reified T> startNewActivity(context: Context, finishCurrent: Boolean
     context.startActivity(intent)
     if (finishCurrent && context is AppCompatActivity) {
         context.finish()
+    }
+}
+
+fun formatDateString(inputDate: String, inputFormat: String, outputFormat: String): String {
+    return try {
+        val sdf = SimpleDateFormat(inputFormat, Locale.ENGLISH)
+        val date = sdf.parse(inputDate)
+        val outputSdf = SimpleDateFormat(outputFormat, Locale.ENGLISH)
+        outputSdf.format(date)
+    } catch (e: Exception) {
+        e.printStackTrace()
+        inputDate
     }
 }

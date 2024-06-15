@@ -11,5 +11,5 @@ data class LoginResponse(
     val message: String,
 
     @Json(name = "token")
-    val token: String
+    val token: String?
 )

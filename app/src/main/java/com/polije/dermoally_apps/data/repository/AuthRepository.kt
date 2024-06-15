@@ -1,5 +1,6 @@
 package com.polije.dermoally_apps.data.repository
 
+import android.util.Log
 import com.polije.dermoally_apps.data.auth.LoginRequest
 import com.polije.dermoally_apps.data.auth.LoginResponse
 import com.polije.dermoally_apps.data.auth.RegisterRequest
@@ -10,7 +11,6 @@ import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.data.prefs.UserPrefs
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import com.polije.dermoally_apps.utils.PrefsManager
 import com.polije.dermoally_apps.utils.koinModules
 import kotlinx.coroutines.runBlocking
 import org.koin.core.context.GlobalContext.unloadKoinModules
@@ -28,7 +28,7 @@ class AuthRepositoryImpl(private val apiServices: ApiServices, private val prefs
             emit(ApiStatus.Loading)
             val response = apiServices.login(req)
             if (!response.error) {
-                response.token.let {
+                response.token?.let {
                     prefs.saveSession(User(it, true))
                     reloadKoinModules()
                 }

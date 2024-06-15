@@ -7,12 +7,15 @@ import com.polije.dermoally_apps.data.disease.DiseaseDetection
 import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
 import com.polije.dermoally_apps.data.disease.History
 import com.polije.dermoally_apps.databinding.ItemHistoryBinding
+import com.polije.dermoally_apps.utils.API_URL
+import com.polije.dermoally_apps.utils.formatDateString
 
 class SkinAnalyzeViewHolder(private val binding: ItemHistoryBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(skinAnalyze: DiseaseDetectionResponse, onClickSeeMore: (DiseaseDetectionResponse) -> Unit) {
-        Glide.with(binding.root.context).load(skinAnalyze.imageUrl).into(binding.photo)
+        Glide.with(binding.root.context).load(API_URL + skinAnalyze.imageUrl).into(binding.photo)
         binding.disease.text = skinAnalyze.diseaseDetection.disease
-        binding.createdAt.text = skinAnalyze.date
+        val formattedDate = formatDateString(skinAnalyze.date, "yyyy-MM-dd HH:mm:ss", "dd MMMM yyyy")
+        binding.createdAt.text = formattedDate
         val confidencePercentage = skinAnalyze.diseaseDetection.confidence * 100
         binding.accuracy.text = String.format("%.2f%%", confidencePercentage)
 
