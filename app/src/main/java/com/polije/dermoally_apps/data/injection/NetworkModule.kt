@@ -45,7 +45,7 @@ private fun headerInterceptor(userPrefs: UserPrefs): Interceptor {
     val headers = HashMap<String, String>()
     headers["Content-Type"] = "application/json"
 
-    val endpointsRequiringAuth = listOf("history", "predict")
+    val endpointsRequiringAuth = listOf("history", "predict", "getFavorite")
 
     return InterceptorHeader(headers, userPrefs, endpointsRequiringAuth)
 }

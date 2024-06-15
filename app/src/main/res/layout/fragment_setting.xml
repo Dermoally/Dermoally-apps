@@ -191,9 +191,9 @@
                     android:padding="8dp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="28dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_info_24" />
+                        android:src="@drawable/baseline_question_mark_24" />
                 </FrameLayout>
 
                 <TextView
@@ -234,7 +234,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_info_24" />
+                        android:src="@drawable/baseline_groups_24" />
                 </FrameLayout>
 
                 <TextView

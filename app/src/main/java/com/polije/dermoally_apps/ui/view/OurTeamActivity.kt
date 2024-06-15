@@ -22,6 +22,24 @@ class OurTeamActivity : AppCompatActivity() {
         binding.fawaid.setBackgroundResource(R.drawable.frame_profile)
         binding.fawaid.setClipToOutline(true)
 
+        binding.fatiya.setBackgroundResource(R.drawable.frame_profile)
+        binding.fatiya.setClipToOutline(true)
+
+        binding.tara.setBackgroundResource(R.drawable.frame_profile)
+        binding.tara.setClipToOutline(true)
+
+        binding.sofia.setBackgroundResource(R.drawable.frame_profile)
+        binding.sofia.setClipToOutline(true)
+
+        binding.azzan.setBackgroundResource(R.drawable.frame_profile)
+        binding.azzan.setClipToOutline(true)
+
+        binding.thoriq.setBackgroundResource(R.drawable.frame_profile)
+        binding.thoriq.setClipToOutline(true)
+
+        binding.fikri.setBackgroundResource(R.drawable.frame_profile)
+        binding.fikri.setClipToOutline(true)
+
         binding.btnBack.setOnClickListener{
             startActivity(Intent(this, FragmentSettingBinding::class.java))
         }

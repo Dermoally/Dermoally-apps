@@ -42,4 +42,8 @@ interface ApiServices {
     suspend fun getAllHistorySkinAnalyze(
     ): List<DiseaseDetectionResponse>
 
+    @GET("getFavorite")
+    suspend fun getAllFavoriteSkinAnalyze(
+    ): List<DiseaseDetectionResponse>
+
 }

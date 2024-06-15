@@ -4,12 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.polije.dermoally_apps.adapter.viewholder.FavoriteViewHolder
+import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
 import com.polije.dermoally_apps.data.disease.History
 import com.polije.dermoally_apps.databinding.ItemFavoriteBinding
 
 class FavoriteAdapter(
-    private var histories: List<History>,
-    private val onClickSeeMore: (History) -> Unit
+    private var skinAnalyze: List<DiseaseDetectionResponse>,
+    private val onClickSeeMore: (DiseaseDetectionResponse) -> Unit
 ) : RecyclerView.Adapter<FavoriteViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
@@ -18,14 +19,14 @@ class FavoriteAdapter(
     }
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
-        val history = histories[position]
+        val history = skinAnalyze[position]
         holder.bind(history, onClickSeeMore)
     }
 
-    override fun getItemCount(): Int = histories.size
+    override fun getItemCount(): Int = skinAnalyze.size
 
-    fun updateData(newHistories: List<History>) {
-        histories = newHistories
+    fun updateData(newSkinAnalyze: List<DiseaseDetectionResponse>) {
+        skinAnalyze = newSkinAnalyze
         notifyDataSetChanged()
     }
 }

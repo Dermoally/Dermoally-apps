@@ -39,6 +39,8 @@
         </LinearLayout>
 
     </LinearLayout>
+
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
@@ -46,9 +48,25 @@
         android:background="@drawable/custom_edit_text"
         android:layout_marginBottom="10dp"
         android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="160dp">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="wrap_content"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:indeterminateTintMode="src_atop"
+        android:visibility="gone"
+        android:indeterminateTint="@color/background_blue"
+        />
+    </RelativeLayout>
 </LinearLayout>
