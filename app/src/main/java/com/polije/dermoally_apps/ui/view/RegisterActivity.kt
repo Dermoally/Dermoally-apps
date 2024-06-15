@@ -10,8 +10,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.polije.dermoally_apps.R
+import com.polije.dermoally_apps.data.auth.RegisterRequest
+import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.databinding.ActivityRegisterBinding
 import com.polije.dermoally_apps.ui.viewmodels.RegisterViewModel
+import com.polije.dermoally_apps.utils.showToast
 import org.koin.android.ext.android.inject
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
@@ -25,6 +28,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         onBindView()
+        initObserve()
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -45,14 +49,32 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.buttonRegister -> {
-                //
+                val username = binding.etUsernameRegister.text.toString().trim()
+                val name = binding.etNameRegister.text.toString().trim()
+                val email = binding.etEmailRegister.text.toString().trim()
+                val password = binding.etPasswordRegister.text.toString().trim()
+
+                val request = RegisterRequest(
+                    name, username, email, password
+                )
+
+                if (username.isEmpty()) {
+                    binding.etUsernameRegister.error = "username is required"
+                } else if (name.isEmpty()) {
+                    binding.etNameRegister.error = "name is required"
+                } else if (email.isEmpty()) {
+                    binding.etEmailRegister.error = "email is required"
+                } else if (password.isEmpty()) {
+                    binding.etPasswordRegister.error = "password is required"
+                } else if (password.length < 8) {
+                    binding.etPasswordRegister.error = "password must be more than 8 characters"
+                } else {
+                    viewModel.register(request)
+                }
             }
             binding.tvLogin -> {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
-            }
-            else -> {
-                //
             }
         }
     }
@@ -69,5 +91,26 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         }
         binding.etPasswordRegister.typeface = ResourcesCompat.getFont(this, R.font.poppinsregular)
         binding.etPasswordRegister.setSelection(binding.etPasswordRegister.text.length)
+    }
+
+    private fun initObserve(){
+        viewModel.registerResult.observe(this){
+            when(it) {
+                is ApiStatus.Loading -> {
+                    binding.loadingOverlay.visibility = View.VISIBLE
+                }
+                is ApiStatus.Success -> {
+                    binding.loadingOverlay.visibility = View.GONE
+                    showToast(this, it.data.message,)
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                }
+
+                is ApiStatus.Error -> {
+                    binding.loadingOverlay.visibility = View.GONE
+                    showToast(this, it.errorMessage)
+                }
+            }
+        }
     }
 }
