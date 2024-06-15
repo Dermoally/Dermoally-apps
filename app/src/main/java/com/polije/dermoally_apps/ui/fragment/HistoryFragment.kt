@@ -2,24 +2,33 @@ package com.polije.dermoally_apps.ui.fragment
 
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import org.koin.android.ext.android.inject
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.polije.dermoally_apps.R
 import com.polije.dermoally_apps.adapter.HistoryAdapter
+import com.polije.dermoally_apps.adapter.SkinAnalyzeAdapter
+import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.databinding.FragmentHistoryBinding
+import com.polije.dermoally_apps.ui.viewmodels.HistoryViewModel
+import com.polije.dermoally_apps.ui.viewmodels.SkinAnalyzeViewModel
 import com.polije.dermoally_apps.utils.DummyHistoryProvider
+import com.polije.dermoally_apps.utils.showToast
 
 class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
-    private lateinit var historyAdapter: HistoryAdapter
+    private lateinit var skinAnalyzeAdapter: SkinAnalyzeAdapter
+    private val viewModel: HistoryViewModel by inject()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,20 +36,45 @@ class HistoryFragment : Fragment() {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val dummyHistories = DummyHistoryProvider.getDummyHistories()
-        historyAdapter = HistoryAdapter(dummyHistories)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        binding.recyclerView.adapter = historyAdapter
+        binding.recyclerView.adapter = skinAnalyzeAdapter
+
+        skinAnalyzeAdapter = SkinAnalyzeAdapter(emptyList()) {
+            //handle click
+        }
+
         val face: Typeface? = ResourcesCompat.getFont(requireContext(), R.font.poppinsregular)
         val searchText = binding.searchView.findViewById<View>(androidx.appcompat.R.id.search_src_text) as TextView
         searchText.typeface = face
         searchText.textSize = 12f
         searchText.setTextColor(ContextCompat.getColor(requireContext(), android.R.color.black))
 
+        initObserve()
+        viewModel.getAllHistory()
+
         return root
     }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun initObserve() {
+        viewModel.historyResult.observe(viewLifecycleOwner, Observer { status ->
+            when (status) {
+                is ApiStatus.Loading -> {
+                   binding.progressBar.visibility = View.VISIBLE
+                }
+                is ApiStatus.Success -> {
+                    binding.progressBar.visibility = View.GONE
+                    skinAnalyzeAdapter.updateData(status.data)
+                }
+                is ApiStatus.Error -> {
+                    binding.progressBar.visibility = View.GONE
+                    showToast(requireContext(), status.errorMessage)
+                    Log.e("history_fragment", status.errorMessage)
+                }
+            }
+        })
     }
 }
