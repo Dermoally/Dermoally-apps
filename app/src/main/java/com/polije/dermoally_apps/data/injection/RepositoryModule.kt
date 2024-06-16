@@ -8,6 +8,8 @@ import com.polije.dermoally_apps.data.repository.HistoryRepository
 import com.polije.dermoally_apps.data.repository.HistoryRepositoryImpl
 import com.polije.dermoally_apps.data.repository.SkinAnalyzeRepository
 import com.polije.dermoally_apps.data.repository.SkinAnalyzeRepositoryImpl
+import com.polije.dermoally_apps.data.repository.UserRepository
+import com.polije.dermoally_apps.data.repository.UserRepositoryImpl
 import org.koin.dsl.module
 
 val repositoryModule = module {
@@ -15,4 +17,5 @@ val repositoryModule = module {
     single<HistoryRepository> { HistoryRepositoryImpl(get()) }
     single<FavoriteRepository> { FavoriteRepositoryImpl(get()) }
     single<SkinAnalyzeRepository> { SkinAnalyzeRepositoryImpl(get()) }
+    single<UserRepository> { UserRepositoryImpl(get()) }
 }

@@ -6,11 +6,14 @@ import com.polije.dermoally_apps.data.auth.RegisterRequest
 import com.polije.dermoally_apps.data.auth.RegisterResponse
 import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
 import com.polije.dermoally_apps.data.disease.HistoryResponse
+import com.polije.dermoally_apps.data.user.UserRequest
+import com.polije.dermoally_apps.data.user.UserResponse
 import okhttp3.MultipartBody
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Part
 
 interface ApiServices {
@@ -28,9 +31,14 @@ interface ApiServices {
     suspend fun getAllHistory(
     ): HistoryResponse
 
-    @GET("favorite")
-    suspend fun getAllFavorite(
-    ): HistoryResponse
+    @GET("user")
+    suspend fun getUserInfo(
+    ): UserResponse
+
+    @PUT("user")
+    suspend fun updateUserInfo(
+        @Body userRequest: UserRequest
+    ): UserResponse
 
     @Multipart
     @POST("predict")
