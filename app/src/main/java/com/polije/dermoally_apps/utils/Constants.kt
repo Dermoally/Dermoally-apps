@@ -25,10 +25,10 @@ const val TOKEN_KEY: String = "auth_token"
 const val NAME_KEY: String = "auth_name"
 
 //punya fatiya
-//const val API_URL = "http://192.168.100.92:9000/"
+const val API_URL = "http://192.168.100.92:9000/"
 
 //punya fawa
-const val API_URL = "http://192.168.46.87:9000/"
+//const val API_URL = "http://192.168.46.87:9000/"
 
 fun showToast(context: Context, message: String) {
     Toast.makeText(context, message, Toast.LENGTH_LONG).show()
