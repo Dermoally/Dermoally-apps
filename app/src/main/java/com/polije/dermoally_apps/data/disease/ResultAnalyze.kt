@@ -2,6 +2,7 @@ package com.polije.dermoally_apps.data.disease
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 @JsonClass(generateAdapter = true)
 data class ResultAnalyze(
@@ -23,4 +24,4 @@ data class ResultAnalyze(
     val pityriasisVersicolor: Double,
     @Json(name = "Ringworm")
     val ringworm: Double
-)
+): Serializable

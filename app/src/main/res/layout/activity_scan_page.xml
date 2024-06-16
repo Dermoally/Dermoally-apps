@@ -20,13 +20,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imgScan"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="600dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/result" />
-
+            android:layout_height="600dp">
+            <ImageView
+                android:id="@+id/imgScan"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/result" />
+            <FrameLayout
+                android:id="@+id/loadingOverlay"
+                android:layout_width="match_parent"
+                android:background="#80000000"
+                android:visibility="gone"
+                android:layout_height="match_parent">
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:layout_gravity="center"
+                    android:indeterminateTintMode="src_atop"
+                    android:indeterminateTint="@color/background_blue"
+                    />
+            </FrameLayout>
+        </RelativeLayout>
     </FrameLayout>
 
 

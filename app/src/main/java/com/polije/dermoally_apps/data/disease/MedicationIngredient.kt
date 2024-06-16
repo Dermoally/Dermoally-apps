@@ -2,6 +2,7 @@ package com.polije.dermoally_apps.data.disease
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 @JsonClass(generateAdapter = true)
 data class MedicationIngredient(
@@ -15,5 +16,5 @@ data class MedicationIngredient(
     val linkTokopedia: String?,
     @Json(name = "name")
     val name: String
-)
+): Serializable
 

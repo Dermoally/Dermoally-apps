@@ -2,6 +2,7 @@ package com.polije.dermoally_apps.data.disease
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 @JsonClass(generateAdapter = true)
 data class DiseaseDetection(
@@ -17,4 +18,4 @@ data class DiseaseDetection(
     val overview: String,
     @Json(name = "medication_ingredients")
     val medicationIngredients: List<MedicationIngredient>
-)
+): Serializable
