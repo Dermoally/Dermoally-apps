@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.view.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.view.EditProfileActivity"
             android:exported="false" />
         <activity
@@ -72,10 +75,11 @@
                 <action android:name="com.polije.dermoally_apps.SESSION_EXPIRED" />
             </intent-filter>
         </receiver>
+
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

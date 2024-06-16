@@ -8,7 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.polije.dermoally_apps.R
+import com.polije.dermoally_apps.adapter.FavoriteAdapter
+import com.polije.dermoally_apps.adapter.HomeAdapter
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.databinding.FragmentHomeBinding
 import com.polije.dermoally_apps.ui.view.ScanPageActivity
@@ -21,6 +24,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var adapter: HomeAdapter
     private val viewModel: HomeViewModel by inject()
 
     override fun onCreateView(
@@ -37,8 +41,17 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        adapter = HomeAdapter(emptyList()) {
+            // Handle click action if needed
+            showToast(requireContext(), it.diseaseDetection.overview)
+        }
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerView.adapter = adapter
+
         initObserve()
         viewModel.getUserInfo()
+        viewModel.getRecentResult()
 
         return root
     }
@@ -55,6 +68,23 @@ class HomeFragment : Fragment() {
                 is ApiStatus.Error -> {
                     showToast(requireContext(), it.errorMessage)
                     Log.e("home_fragment", it.errorMessage)
+                }
+            }
+        })
+
+        viewModel.recentResult.observe(viewLifecycleOwner, Observer { status ->
+            when (status) {
+                is ApiStatus.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+                is ApiStatus.Success -> {
+                    binding.progressBar.visibility = View.GONE
+                    adapter.updateData(status.data)
+                }
+                is ApiStatus.Error -> {
+                    binding.progressBar.visibility = View.GONE
+                    showToast(requireContext(), status.errorMessage)
+                    Log.e("favorite_fragment", status.errorMessage)
                 }
             }
         })

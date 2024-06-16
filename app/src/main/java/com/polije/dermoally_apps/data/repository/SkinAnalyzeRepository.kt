@@ -15,6 +15,7 @@ import okhttp3.RequestBody.Companion.asRequestBody
 
 interface SkinAnalyzeRepository  {
     fun getAllSkinAnalyze(): Flow<ApiStatus<List<DiseaseDetectionResponse>>>
+    fun getAllRecentSkinAnalyze(): Flow<ApiStatus<List<DiseaseDetectionResponse>>>
     fun uploadSkinAnalyze(
         fileUri: Uri,
     ): Flow<ApiStatus<DiseaseDetectionResponse>>
@@ -31,6 +32,18 @@ class SkinAnalyzeRepositoryImpl(private val apiServices: ApiServices): SkinAnaly
             emit(ApiStatus.Error(e.message.toString()))
         }
     }
+
+    override fun getAllRecentSkinAnalyze(): Flow<ApiStatus<List<DiseaseDetectionResponse>>>  = flow {
+        try {
+            emit(ApiStatus.Loading)
+            val response = apiServices.getAllRecentSkinAnalyze()
+            emit(ApiStatus.Success(response))
+        } catch (e: Exception) {
+            e.printStackTrace()
+            emit(ApiStatus.Error(e.message.toString()))
+        }
+    }
+
 
     override fun uploadSkinAnalyze(fileUri: Uri): Flow<ApiStatus<DiseaseDetectionResponse>> = flow {
         try {

@@ -54,4 +54,8 @@ interface ApiServices {
     suspend fun getAllFavoriteSkinAnalyze(
     ): List<DiseaseDetectionResponse>
 
+    @GET("predict/recent")
+    suspend fun getAllRecentSkinAnalyze(
+    ): List<DiseaseDetectionResponse>
+
 }
