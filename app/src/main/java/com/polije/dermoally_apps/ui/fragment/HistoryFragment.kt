@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import org.koin.android.ext.android.inject
 import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.Observer
@@ -37,7 +38,6 @@ class HistoryFragment : Fragment() {
         val root: View = binding.root
 
         skinAnalyzeAdapter = SkinAnalyzeAdapter(emptyList()) {
-            // Handle click action if needed
             showToast(requireContext(), it.diseaseDetection.overview)
         }
 
@@ -49,6 +49,17 @@ class HistoryFragment : Fragment() {
         searchText.typeface = face
         searchText.textSize = 12f
         searchText.setTextColor(ContextCompat.getColor(requireContext(), android.R.color.black))
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                skinAnalyzeAdapter.filter.filter(newText)
+                return true
+            }
+        })
 
         initObserve()
         viewModel.getAllHistory()
