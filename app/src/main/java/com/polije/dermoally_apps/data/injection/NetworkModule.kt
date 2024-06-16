@@ -1,5 +1,6 @@
 package com.polije.dermoally_apps.data.injection
 
+import android.content.Context
 import com.polije.dermoally_apps.data.network.ApiServices
 import com.polije.dermoally_apps.data.prefs.UserPrefs
 import com.polije.dermoally_apps.utils.API_URL
@@ -9,6 +10,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -18,7 +20,7 @@ val networkModule = module {
     single { UserPrefs.getInstance(get()) }
     single {
         OkHttpClient.Builder()
-            .addInterceptor(headerInterceptor(get()))
+            .addInterceptor(headerInterceptor(get(), androidContext()))
             .addInterceptor(
                 HttpLoggingInterceptor().setLevel(
                     HttpLoggingInterceptor.Level.BODY
@@ -41,11 +43,11 @@ val networkModule = module {
     }
 }
 
-private fun headerInterceptor(userPrefs: UserPrefs): Interceptor {
+private fun headerInterceptor(userPrefs: UserPrefs, context: Context): Interceptor {
     val headers = HashMap<String, String>()
     headers["Content-Type"] = "application/json"
 
     val endpointsRequiringAuth = listOf("history", "predict", "getFavorite")
 
-    return InterceptorHeader(headers, userPrefs, endpointsRequiringAuth)
+    return InterceptorHeader(headers, userPrefs, endpointsRequiringAuth, context)
 }

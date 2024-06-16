@@ -1,6 +1,9 @@
 package com.polije.dermoally_apps.utils
 
+import android.content.Context
+import android.content.Intent
 import com.polije.dermoally_apps.data.prefs.UserPrefs
+import com.polije.dermoally_apps.ui.view.LoginActivity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
@@ -11,13 +14,16 @@ import java.io.IOException
 class InterceptorHeader(
     private val requestHeaders: HashMap<String, String>,
     private val userPrefs: UserPrefs,
-    private val endpointsRequiringAuth: List<String>
+    private val endpointsRequiringAuth: List<String>,
+    private val context: Context
 ) : Interceptor {
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
         val url = request.url
+
+        val response: Response
 
         if (requiresAuthToken(url.toString())) {
             val token = runBlocking {
@@ -26,11 +32,20 @@ class InterceptorHeader(
             if (token.isNotEmpty()) {
                 requestHeaders["Authorization"] = "Bearer $token"
             }
+
+            response = chain.proceed(mapHeaders(request))
+
+            if (response.code == 401) {
+                runBlocking {
+                    userPrefs.logout()
+                }
+                sendSessionExpiredBroadcast()
+            }
+        } else {
+            response = chain.proceed(request)
         }
 
-        val modifiedRequest = mapHeaders(request)
-
-        return chain.proceed(modifiedRequest)
+        return response
     }
 
     private fun requiresAuthToken(url: String): Boolean {
@@ -44,6 +59,10 @@ class InterceptorHeader(
             requestBuilder.addHeader(key, value)
         }
         return requestBuilder.build()
+    }
+    private fun sendSessionExpiredBroadcast() {
+        val intent = Intent("com.polije.dermoally_apps.SESSION_EXPIRED")
+        context.sendBroadcast(intent)
     }
 
 }
