@@ -18,7 +18,11 @@ class AboutActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         binding.btnBack.setOnClickListener{
             startActivity(Intent(this, FragmentSettingBinding::class.java))

@@ -23,7 +23,11 @@ class HomePageActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
+            insets
+        }
         binding.bottomNavView.background = null
         binding.bottomNavView.menu.getItem(2).isEnabled = false
         binding.floatingButton.setColorFilter(Color.parseColor("#020852"))

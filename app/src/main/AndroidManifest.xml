@@ -64,7 +64,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <receiver android:name=".utils.SessionExpiredReceiver"
+
+        <receiver
+            android:name=".utils.SessionExpiredReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.polije.dermoally_apps.SESSION_EXPIRED" />

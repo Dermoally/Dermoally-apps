@@ -67,8 +67,8 @@ class HistoryFragment : Fragment() {
                    binding.progressBar.visibility = View.VISIBLE
                 }
                 is ApiStatus.Success -> {
-                    binding.progressBar.visibility = View.GONE
                     skinAnalyzeAdapter.updateData(status.data)
+                    binding.progressBar.visibility = View.GONE
                 }
                 is ApiStatus.Error -> {
                     binding.progressBar.visibility = View.GONE
