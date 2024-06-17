@@ -66,8 +66,8 @@ class FavoriteFragment : Fragment() {
                 }
                 is ApiStatus.Error -> {
                     binding.progressBar.visibility = View.GONE
-                    showToast(requireContext(), status.errorMessage)
-                    Log.e("favorite_fragment", status.errorMessage)
+                    showToast(requireContext(), status.message)
+                    Log.e("favorite_fragment", status.message)
                 }
             }
         })

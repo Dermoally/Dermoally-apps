@@ -13,5 +13,6 @@
         <item name="android:statusBarColor">@color/background_soft_grey_primary</item>
         <!-- Customize your theme here. -->
         <item name="android:windowFullscreen">false</item>
+        <item name="autoCompleteTextViewStyle">@style/cursorColor</item>
     </style>
 </resources>

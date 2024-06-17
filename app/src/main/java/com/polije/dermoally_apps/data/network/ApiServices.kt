@@ -6,6 +6,8 @@ import com.polije.dermoally_apps.data.auth.RegisterRequest
 import com.polije.dermoally_apps.data.auth.RegisterResponse
 import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
 import com.polije.dermoally_apps.data.disease.HistoryResponse
+import com.polije.dermoally_apps.data.disease.MedicationResponses
+import com.polije.dermoally_apps.data.disease.SkinAnalyzeResponse
 import com.polije.dermoally_apps.data.user.UserRequest
 import com.polije.dermoally_apps.data.user.UserResponse
 import okhttp3.MultipartBody
@@ -44,7 +46,7 @@ interface ApiServices {
     @POST("predict")
     suspend fun upload(
         @Part file: MultipartBody.Part,
-    ): DiseaseDetectionResponse
+    ): SkinAnalyzeResponse
 
     @GET("history")
     suspend fun getAllHistorySkinAnalyze(
@@ -57,5 +59,9 @@ interface ApiServices {
     @GET("predict/recent")
     suspend fun getAllRecentSkinAnalyze(
     ): List<DiseaseDetectionResponse>
+
+    @GET("medications")
+    suspend fun getAllMedications(
+    ): List<MedicationResponses>
 
 }

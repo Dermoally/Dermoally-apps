@@ -4,4 +4,7 @@
         parent="Widget.Design.BottomNavigationView">
         <item name="fontFamily">@font/poppinsregular</item>
     </style>
+    <style name="cursorColor" parent="Widget.AppCompat.AutoCompleteTextView">
+        <item name="android:textCursorDrawable">@drawable/custom_curson</item>
+    </style>
 </resources>

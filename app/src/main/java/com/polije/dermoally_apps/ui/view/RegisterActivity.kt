@@ -107,7 +107,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
                 is ApiStatus.Error -> {
                     binding.loadingOverlay.visibility = View.GONE
-                    showToast(this, it.errorMessage)
+                    showToast(this, it.message)
                 }
             }
         }

@@ -118,7 +118,7 @@ class ScanPageActivity : AppCompatActivity() {
 
                     is ApiStatus.Error -> {
                         binding.loadingOverlay.visibility = View.GONE
-                       showToast(this@ScanPageActivity, result.errorMessage)
+                       showToast(this@ScanPageActivity, result.message)
                     }
 
                     else -> binding.loadingOverlay.visibility = View.GONE

@@ -1,9 +1,11 @@
 package com.polije.dermoally_apps.data.repository
 
 import android.net.Uri
+import android.util.Log
 import androidx.core.net.toFile
 import androidx.lifecycle.LiveData
 import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
+import com.polije.dermoally_apps.data.model.User
 import com.polije.dermoally_apps.data.network.ApiServices
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.utils.extensions.reduceFileImage
@@ -54,7 +56,11 @@ class SkinAnalyzeRepositoryImpl(private val apiServices: ApiServices): SkinAnaly
             "file", file.name, requestImageFile
         )
         val response = apiServices.upload(multipartBody)
-        emit(ApiStatus.Success(response))
+            if (!response.error) {
+                emit(ApiStatus.Success(response.data))
+            } else {
+                emit(ApiStatus.Error("failed to analyze skin, skin disease not found"))
+            }
         } catch (e: Exception) {
             e.printStackTrace()
             emit(ApiStatus.Error(e.message.toString()))

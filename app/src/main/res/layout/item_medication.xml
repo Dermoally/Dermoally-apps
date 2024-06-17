@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/frame_home">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/frame_transparent"/>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button"
+                android:paddingVertical="1dp"
+                android:layout_margin="10dp"
+                android:paddingHorizontal="15dp">
+                <TextView
+                    android:id="@+id/disease"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Keratosis Seborrheic"
+                    android:textSize="11sp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppinsbold"
+                    android:textColor="@color/white"/>
+            </FrameLayout>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/medication"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Retinoids (e.g. Tretinoin, Adapalene)"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppinsbold"
+            android:textColor="@color/black"
+            android:maxLines="2"
+            android:ellipsize="end"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/visit"
+            android:layout_gravity="bottom|end"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Visit here"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppinsbold"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:background="@drawable/custom_button"
+            android:layout_marginTop="10dp"
+            />
+    </LinearLayout>
+</FrameLayout>

@@ -6,6 +6,8 @@ import com.polije.dermoally_apps.data.repository.FavoriteRepository
 import com.polije.dermoally_apps.data.repository.FavoriteRepositoryImpl
 import com.polije.dermoally_apps.data.repository.HistoryRepository
 import com.polije.dermoally_apps.data.repository.HistoryRepositoryImpl
+import com.polije.dermoally_apps.data.repository.MedicationRepository
+import com.polije.dermoally_apps.data.repository.MedicationRepositoryImpl
 import com.polije.dermoally_apps.data.repository.SkinAnalyzeRepository
 import com.polije.dermoally_apps.data.repository.SkinAnalyzeRepositoryImpl
 import com.polije.dermoally_apps.data.repository.UserRepository
@@ -18,4 +20,5 @@ val repositoryModule = module {
     single<FavoriteRepository> { FavoriteRepositoryImpl(get()) }
     single<SkinAnalyzeRepository> { SkinAnalyzeRepositoryImpl(get()) }
     single<UserRepository> { UserRepositoryImpl(get()) }
+    single<MedicationRepository> { MedicationRepositoryImpl(get()) }
 }

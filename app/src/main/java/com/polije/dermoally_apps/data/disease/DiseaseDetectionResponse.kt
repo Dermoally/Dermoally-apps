@@ -4,6 +4,15 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
+
+data class SkinAnalyzeResponse(
+    @Json(name = "error")
+    val error: Boolean,
+
+    @Json(name = "data")
+    val data: DiseaseDetectionResponse,
+)
+
 @JsonClass(generateAdapter = true)
 data class DiseaseDetectionResponse(
     @Json(name = "date")

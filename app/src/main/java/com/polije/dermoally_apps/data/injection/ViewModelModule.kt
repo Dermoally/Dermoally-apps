@@ -17,5 +17,5 @@ val viewModelModule = module {
     viewModel { SkinAnalyzeViewModel(get()) }
     viewModel { HistoryViewModel(get()) }
     viewModel { FavoriteViewModel(get()) }
-    viewModel { HomeViewModel(get(), get()) }
+    viewModel { HomeViewModel(get(), get(), get()) }
 }
