@@ -30,7 +30,11 @@ class UserRepositoryImpl(private val apiServices: ApiServices): UserRepository {
         try {
             emit(ApiStatus.Loading)
             val response = apiServices.updateUserInfo(request)
+            if (!response.error){
             emit(ApiStatus.Success(response))
+            } else {
+                emit(ApiStatus.Error(response.message.toString()))
+            }
         } catch (e: Exception) {
             e.printStackTrace()
             emit(ApiStatus.Error(e.message.toString()))

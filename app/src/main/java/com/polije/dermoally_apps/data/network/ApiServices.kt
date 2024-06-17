@@ -35,7 +35,7 @@ interface ApiServices {
     suspend fun getUserInfo(
     ): UserResponse
 
-    @PUT("user")
+    @PUT("profile")
     suspend fun updateUserInfo(
         @Body userRequest: UserRequest
     ): UpdateUserResponse

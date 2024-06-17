@@ -45,14 +45,7 @@
 
                 </LinearLayout>
             </LinearLayout>
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="20dp"
-                android:background="@drawable/custom_search"
-                android:layout_marginTop="15dp"
-                android:hint="Search medication"
-                android:layout_height="wrap_content"/>
+
             <LinearLayout
                 android:layout_marginTop="15dp"
                 android:layout_width="match_parent"

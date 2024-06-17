@@ -18,7 +18,7 @@ data class UserResponse(
 
 data class UpdateUserResponse(
     @Json(name = "error")
-    val error: String?,
+    val error: Boolean,
 
     @Json(name = "message")
     val message: String?,
