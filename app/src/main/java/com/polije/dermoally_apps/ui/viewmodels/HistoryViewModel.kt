@@ -5,9 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.polije.dermoally_apps.data.model.disease.DiseaseDetectionResponse
-import com.polije.dermoally_apps.data.disease.HistoryResponse
 import com.polije.dermoally_apps.data.network.ApiStatus
-import com.polije.dermoally_apps.data.repository.HistoryRepository
 import com.polije.dermoally_apps.data.repository.SkinAnalyzeRepository
 import kotlinx.coroutines.launch
 
