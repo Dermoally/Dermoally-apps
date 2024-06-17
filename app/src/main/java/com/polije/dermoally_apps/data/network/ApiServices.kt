@@ -9,6 +9,7 @@ import com.polije.dermoally_apps.data.model.disease.FavoriteRequest
 import com.polije.dermoally_apps.data.model.disease.FavoriteResponse
 import com.polije.dermoally_apps.data.model.disease.MedicationResponses
 import com.polije.dermoally_apps.data.model.disease.SkinAnalyzeResponse
+import com.polije.dermoally_apps.data.model.user.UpdateUserResponse
 import com.polije.dermoally_apps.data.model.user.UserRequest
 import com.polije.dermoally_apps.data.model.user.UserResponse
 import okhttp3.MultipartBody
@@ -37,7 +38,7 @@ interface ApiServices {
     @PUT("user")
     suspend fun updateUserInfo(
         @Body userRequest: UserRequest
-    ): UserResponse
+    ): UpdateUserResponse
 
     @Multipart
     @POST("predict")

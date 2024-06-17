@@ -1,5 +1,6 @@
 package com.polije.dermoally_apps.data.repository
 
+import com.polije.dermoally_apps.data.model.user.UpdateUserResponse
 import com.polije.dermoally_apps.data.network.ApiServices
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.data.model.user.UserRequest
@@ -10,7 +11,7 @@ import kotlinx.coroutines.flow.flow
 interface UserRepository {
 
     fun getUserInfo(): Flow<ApiStatus<UserResponse>>
-    fun updateUserInfo(request: UserRequest): Flow<ApiStatus<UserResponse>>
+    fun updateUserInfo(request: UserRequest): Flow<ApiStatus<UpdateUserResponse>>
 }
 
 class UserRepositoryImpl(private val apiServices: ApiServices): UserRepository {
@@ -25,7 +26,7 @@ class UserRepositoryImpl(private val apiServices: ApiServices): UserRepository {
        }
     }
 
-    override fun updateUserInfo(request: UserRequest): Flow<ApiStatus<UserResponse>> = flow {
+    override fun updateUserInfo(request: UserRequest): Flow<ApiStatus<UpdateUserResponse>> = flow {
         try {
             emit(ApiStatus.Loading)
             val response = apiServices.updateUserInfo(request)

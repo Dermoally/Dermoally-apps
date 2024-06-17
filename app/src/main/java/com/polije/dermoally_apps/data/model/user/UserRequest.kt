@@ -8,7 +8,4 @@ data class UserRequest (
 
     @Field("name")
     val name: String,
-
-    @Field("profile_image_url")
-    val imageProfile: String
 )

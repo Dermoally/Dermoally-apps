@@ -5,7 +5,9 @@ import com.polije.dermoally_apps.ui.viewmodels.FavoriteViewModel
 import com.polije.dermoally_apps.ui.viewmodels.HistoryViewModel
 import com.polije.dermoally_apps.ui.viewmodels.HomeViewModel
 import com.polije.dermoally_apps.ui.viewmodels.LoginViewModel
+import com.polije.dermoally_apps.ui.viewmodels.ProfileViewModel
 import com.polije.dermoally_apps.ui.viewmodels.RegisterViewModel
+import com.polije.dermoally_apps.ui.viewmodels.SettingViewModel
 import com.polije.dermoally_apps.ui.viewmodels.SkinAnalyzeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -18,4 +20,6 @@ val viewModelModule = module {
     viewModel { HistoryViewModel(get()) }
     viewModel { FavoriteViewModel(get()) }
     viewModel { HomeViewModel(get(), get(), get()) }
+    viewModel { SettingViewModel(get(), get()) }
+    viewModel { ProfileViewModel(get()) }
 }

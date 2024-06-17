@@ -15,3 +15,11 @@ data class UserResponse(
     @Json(name = "username")
     val username: String?,
 )
+
+data class UpdateUserResponse(
+    @Json(name = "error")
+    val error: String?,
+
+    @Json(name = "message")
+    val message: String?,
+)
