@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.polije.dermoally_apps.adapter.viewholder.FavoriteViewHolder
-import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
+import com.polije.dermoally_apps.data.model.disease.DiseaseDetectionResponse
 import com.polije.dermoally_apps.data.disease.History
 import com.polije.dermoally_apps.databinding.ItemFavoriteBinding
 

@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.polije.dermoally_apps.adapter.viewholder.MedicationViewHolder
-import com.polije.dermoally_apps.data.disease.MedicationResponses
+import com.polije.dermoally_apps.data.model.disease.MedicationResponses
 import com.polije.dermoally_apps.databinding.ItemMedicationBinding
 
 class MedicationAdapter (

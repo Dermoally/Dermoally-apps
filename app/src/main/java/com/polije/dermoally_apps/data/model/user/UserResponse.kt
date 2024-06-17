@@ -1,4 +1,4 @@
-package com.polije.dermoally_apps.data.user
+package com.polije.dermoally_apps.data.model.user
 
 import com.squareup.moshi.Json
 

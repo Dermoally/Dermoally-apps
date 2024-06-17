@@ -3,8 +3,8 @@ package com.polije.dermoally_apps.adapter.viewholder
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.polije.dermoally_apps.R
-import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
-import com.polije.dermoally_apps.data.disease.MedicationResponses
+import com.polije.dermoally_apps.data.model.disease.DiseaseDetectionResponse
+import com.polije.dermoally_apps.data.model.disease.MedicationResponses
 import com.polije.dermoally_apps.databinding.ItemMedicationBinding
 import com.polije.dermoally_apps.utils.API_URL
 import com.polije.dermoally_apps.utils.formatDateString

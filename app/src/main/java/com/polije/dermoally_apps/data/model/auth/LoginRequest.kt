@@ -1,4 +1,4 @@
-package com.polije.dermoally_apps.data.auth
+package com.polije.dermoally_apps.data.model.auth
 
 import retrofit2.http.Field
 

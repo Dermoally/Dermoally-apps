@@ -1,6 +1,6 @@
 package com.polije.dermoally_apps.data.repository
 
-import com.polije.dermoally_apps.data.disease.MedicationResponses
+import com.polije.dermoally_apps.data.model.disease.MedicationResponses
 import com.polije.dermoally_apps.data.network.ApiServices
 import com.polije.dermoally_apps.data.network.ApiStatus
 import kotlinx.coroutines.flow.Flow

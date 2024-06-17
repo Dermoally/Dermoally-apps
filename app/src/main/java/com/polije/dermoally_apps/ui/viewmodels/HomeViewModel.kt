@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
-import com.polije.dermoally_apps.data.disease.MedicationResponses
+import com.polije.dermoally_apps.data.model.disease.DiseaseDetectionResponse
+import com.polije.dermoally_apps.data.model.disease.MedicationResponses
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.data.repository.MedicationRepository
 import com.polije.dermoally_apps.data.repository.SkinAnalyzeRepository
 import com.polije.dermoally_apps.data.repository.UserRepository
-import com.polije.dermoally_apps.data.user.UserResponse
+import com.polije.dermoally_apps.data.model.user.UserResponse
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val userRepository: UserRepository, private val repository: SkinAnalyzeRepository, private val medicationRepository: MedicationRepository,): ViewModel() {

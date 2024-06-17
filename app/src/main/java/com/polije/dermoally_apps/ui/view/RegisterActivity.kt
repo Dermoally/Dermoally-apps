@@ -10,7 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.polije.dermoally_apps.R
-import com.polije.dermoally_apps.data.auth.RegisterRequest
+import com.polije.dermoally_apps.data.model.auth.RegisterRequest
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.databinding.ActivityRegisterBinding
 import com.polije.dermoally_apps.ui.viewmodels.RegisterViewModel

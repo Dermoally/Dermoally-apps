@@ -13,12 +13,16 @@ import com.polije.dermoally_apps.ui.view.AboutActivity
 import com.polije.dermoally_apps.ui.view.AppInfoActivity
 import com.polije.dermoally_apps.ui.view.EditProfileActivity
 import com.polije.dermoally_apps.ui.view.HomePageActivity
+import com.polije.dermoally_apps.ui.view.LoginActivity
 import com.polije.dermoally_apps.ui.view.OurTeamActivity
+import com.polije.dermoally_apps.ui.viewmodels.AuthViewModel
+import org.koin.android.ext.android.inject
 
 class SettingFragment : Fragment() {
 
     private var _binding: FragmentSettingBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: AuthViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -42,6 +46,13 @@ class SettingFragment : Fragment() {
         binding.editProfile.setOnClickListener {
             val intent = Intent(requireContext(), EditProfileActivity::class.java)
             startActivity(intent)
+        }
+        binding.logout.setOnClickListener {
+            viewModel.logout()
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            requireActivity().finish()
         }
 
         return root

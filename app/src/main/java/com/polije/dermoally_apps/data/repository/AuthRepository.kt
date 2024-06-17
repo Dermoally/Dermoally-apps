@@ -1,11 +1,10 @@
 package com.polije.dermoally_apps.data.repository
 
-import android.util.Log
-import com.polije.dermoally_apps.data.auth.LoginRequest
-import com.polije.dermoally_apps.data.auth.LoginResponse
-import com.polije.dermoally_apps.data.auth.RegisterRequest
-import com.polije.dermoally_apps.data.auth.RegisterResponse
-import com.polije.dermoally_apps.data.model.User
+import com.polije.dermoally_apps.data.model.auth.LoginRequest
+import com.polije.dermoally_apps.data.model.auth.LoginResponse
+import com.polije.dermoally_apps.data.model.auth.RegisterRequest
+import com.polije.dermoally_apps.data.model.auth.RegisterResponse
+import com.polije.dermoally_apps.data.model.user.User
 import com.polije.dermoally_apps.data.network.ApiServices
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.data.prefs.UserPrefs

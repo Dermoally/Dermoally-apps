@@ -1,15 +1,16 @@
 package com.polije.dermoally_apps.data.network
 
-import com.polije.dermoally_apps.data.auth.LoginRequest
-import com.polije.dermoally_apps.data.auth.LoginResponse
-import com.polije.dermoally_apps.data.auth.RegisterRequest
-import com.polije.dermoally_apps.data.auth.RegisterResponse
-import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
-import com.polije.dermoally_apps.data.disease.HistoryResponse
-import com.polije.dermoally_apps.data.disease.MedicationResponses
-import com.polije.dermoally_apps.data.disease.SkinAnalyzeResponse
-import com.polije.dermoally_apps.data.user.UserRequest
-import com.polije.dermoally_apps.data.user.UserResponse
+import com.polije.dermoally_apps.data.model.auth.LoginRequest
+import com.polije.dermoally_apps.data.model.auth.LoginResponse
+import com.polije.dermoally_apps.data.model.auth.RegisterRequest
+import com.polije.dermoally_apps.data.model.auth.RegisterResponse
+import com.polije.dermoally_apps.data.model.disease.DiseaseDetectionResponse
+import com.polije.dermoally_apps.data.model.disease.FavoriteRequest
+import com.polije.dermoally_apps.data.model.disease.FavoriteResponse
+import com.polije.dermoally_apps.data.model.disease.MedicationResponses
+import com.polije.dermoally_apps.data.model.disease.SkinAnalyzeResponse
+import com.polije.dermoally_apps.data.model.user.UserRequest
+import com.polije.dermoally_apps.data.model.user.UserResponse
 import okhttp3.MultipartBody
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -28,10 +29,6 @@ interface ApiServices {
     suspend fun login(
         @Body loginRequest: LoginRequest
     ): LoginResponse
-
-    @GET("histories")
-    suspend fun getAllHistory(
-    ): HistoryResponse
 
     @GET("user")
     suspend fun getUserInfo(
@@ -64,4 +61,8 @@ interface ApiServices {
     suspend fun getAllMedications(
     ): List<MedicationResponses>
 
+    @POST("updateFavorite")
+    suspend fun updateStatusFavorite(
+        @Body favoriteRequest: FavoriteRequest
+    ): FavoriteResponse
 }

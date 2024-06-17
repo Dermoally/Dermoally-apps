@@ -19,6 +19,13 @@ class AuthViewModel(val prefs: UserPrefs): ViewModel() {
         }
     }
 
+    fun logout() {
+        viewModelScope.launch {
+            prefs.logout()
+            _isLogin.value = false
+        }
+    }
+
     init {
         checkLoginStatus()
     }

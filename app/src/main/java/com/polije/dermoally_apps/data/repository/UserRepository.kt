@@ -2,8 +2,8 @@ package com.polije.dermoally_apps.data.repository
 
 import com.polije.dermoally_apps.data.network.ApiServices
 import com.polije.dermoally_apps.data.network.ApiStatus
-import com.polije.dermoally_apps.data.user.UserRequest
-import com.polije.dermoally_apps.data.user.UserResponse
+import com.polije.dermoally_apps.data.model.user.UserRequest
+import com.polije.dermoally_apps.data.model.user.UserResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

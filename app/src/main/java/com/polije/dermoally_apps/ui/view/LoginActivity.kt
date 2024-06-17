@@ -11,7 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import org.koin.android.ext.android.inject
 import androidx.core.content.res.ResourcesCompat
 import com.polije.dermoally_apps.R
-import com.polije.dermoally_apps.data.auth.LoginRequest
+import com.polije.dermoally_apps.data.model.auth.LoginRequest
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.databinding.ActivityLoginBinding
 import com.polije.dermoally_apps.ui.viewmodels.LoginViewModel

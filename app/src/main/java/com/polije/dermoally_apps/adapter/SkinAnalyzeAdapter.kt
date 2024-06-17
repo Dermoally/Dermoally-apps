@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.polije.dermoally_apps.adapter.viewholder.SkinAnalyzeViewHolder
-import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
+import com.polije.dermoally_apps.data.model.disease.DiseaseDetectionResponse
 import com.polije.dermoally_apps.databinding.ItemHistoryBinding
 
 class SkinAnalyzeAdapter(private var skinAnalyze: List<DiseaseDetectionResponse>, private val onClickSeeMore: (DiseaseDetectionResponse) -> Unit) : RecyclerView.Adapter<SkinAnalyzeViewHolder>(), Filterable {

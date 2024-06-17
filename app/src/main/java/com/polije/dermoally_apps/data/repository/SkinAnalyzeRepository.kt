@@ -1,11 +1,10 @@
 package com.polije.dermoally_apps.data.repository
 
 import android.net.Uri
-import android.util.Log
 import androidx.core.net.toFile
-import androidx.lifecycle.LiveData
-import com.polije.dermoally_apps.data.disease.DiseaseDetectionResponse
-import com.polije.dermoally_apps.data.model.User
+import com.polije.dermoally_apps.data.model.disease.DiseaseDetectionResponse
+import com.polije.dermoally_apps.data.model.disease.FavoriteRequest
+import com.polije.dermoally_apps.data.model.disease.FavoriteResponse
 import com.polije.dermoally_apps.data.network.ApiServices
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.utils.extensions.reduceFileImage
@@ -21,6 +20,8 @@ interface SkinAnalyzeRepository  {
     fun uploadSkinAnalyze(
         fileUri: Uri,
     ): Flow<ApiStatus<DiseaseDetectionResponse>>
+
+    fun updateFavorite(favoriteRequest: FavoriteRequest): Flow<ApiStatus<FavoriteResponse>>
 }
 
 class SkinAnalyzeRepositoryImpl(private val apiServices: ApiServices): SkinAnalyzeRepository{
@@ -60,6 +61,21 @@ class SkinAnalyzeRepositoryImpl(private val apiServices: ApiServices): SkinAnaly
                 emit(ApiStatus.Success(response.data))
             } else {
                 emit(ApiStatus.Error("failed to analyze skin, skin disease not found"))
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            emit(ApiStatus.Error(e.message.toString()))
+        }
+    }
+
+    override fun updateFavorite(favoriteRequest: FavoriteRequest): Flow<ApiStatus<FavoriteResponse>> = flow {
+        try {
+            emit(ApiStatus.Loading)
+            val response = apiServices.updateStatusFavorite(favoriteRequest)
+            if (!response.error) {
+                emit(ApiStatus.Success(response))
+            } else {
+                emit(ApiStatus.Error(response.message))
             }
         } catch (e: Exception) {
             e.printStackTrace()

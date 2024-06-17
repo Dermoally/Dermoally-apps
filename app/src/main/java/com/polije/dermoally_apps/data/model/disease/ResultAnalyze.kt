@@ -1,4 +1,4 @@
-package com.polije.dermoally_apps.data.disease
+package com.polije.dermoally_apps.data.model.disease
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
