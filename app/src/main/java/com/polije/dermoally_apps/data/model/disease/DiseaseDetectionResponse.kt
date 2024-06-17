@@ -15,6 +15,10 @@ data class SkinAnalyzeResponse(
 
 @JsonClass(generateAdapter = true)
 data class DiseaseDetectionResponse(
+    @Json(name = "id_analyze")
+    val idAnalyze: String,
+    @Json(name = "favorite")
+    val favorite: String,
     @Json(name = "date")
     val date: String,
     @Json(name = "disease_detection")

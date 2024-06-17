@@ -15,13 +15,10 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.polije.dermoally_apps.R
-import com.polije.dermoally_apps.adapter.HistoryAdapter
 import com.polije.dermoally_apps.adapter.SkinAnalyzeAdapter
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.databinding.FragmentHistoryBinding
 import com.polije.dermoally_apps.ui.viewmodels.HistoryViewModel
-import com.polije.dermoally_apps.ui.viewmodels.SkinAnalyzeViewModel
-import com.polije.dermoally_apps.utils.DummyHistoryProvider
 import com.polije.dermoally_apps.utils.showToast
 
 class HistoryFragment : Fragment() {
