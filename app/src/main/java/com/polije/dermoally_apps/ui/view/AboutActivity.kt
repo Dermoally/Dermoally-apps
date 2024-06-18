@@ -25,7 +25,7 @@ class AboutActivity : AppCompatActivity() {
         }
 
         binding.btnBack.setOnClickListener{
-            startActivity(Intent(this, FragmentSettingBinding::class.java))
+            onBackPressed()
         }
     }
 }

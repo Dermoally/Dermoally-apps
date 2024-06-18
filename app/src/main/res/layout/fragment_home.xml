@@ -68,7 +68,8 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_weight="1"
-                        android:src="@drawable/killua"
+                        android:background="@color/background_soft_grey_primary"
+                        android:src="@drawable/baseline_account_circle_24"
                         android:scaleType="centerCrop"
                         />
                     </FrameLayout>

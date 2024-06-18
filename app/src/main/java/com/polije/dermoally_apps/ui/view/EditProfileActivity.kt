@@ -87,8 +87,8 @@ class EditProfileActivity : AppCompatActivity() {
                 is ApiStatus.Success -> {
                     binding.loadingOverlay.visibility = View.GONE
                     showToast(this, "Profile updated successfully")
-                    onBackPressed()
                     viewModel.getUserInfo()
+                    finish()
                 }
                 is ApiStatus.Error -> {
                     binding.loadingOverlay.visibility = View.GONE

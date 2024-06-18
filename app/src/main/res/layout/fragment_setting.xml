@@ -113,7 +113,7 @@
                     android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/killua" />
+                    android:src="@drawable/baseline_account_circle_24"/>
             </FrameLayout>
 
 

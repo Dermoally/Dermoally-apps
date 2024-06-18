@@ -41,7 +41,7 @@ class OurTeamActivity : AppCompatActivity() {
         binding.fikri.setClipToOutline(true)
 
         binding.btnBack.setOnClickListener{
-            startActivity(Intent(this, FragmentSettingBinding::class.java))
+            onBackPressed()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
