@@ -5,6 +5,7 @@ import androidx.core.net.toFile
 import com.polije.dermoally_apps.data.model.disease.DiseaseDetectionResponse
 import com.polije.dermoally_apps.data.model.disease.FavoriteRequest
 import com.polije.dermoally_apps.data.model.disease.FavoriteResponse
+import com.polije.dermoally_apps.data.model.disease.SkinAnalyzeResponse
 import com.polije.dermoally_apps.data.network.ApiServices
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.utils.extensions.reduceFileImage
@@ -19,7 +20,7 @@ interface SkinAnalyzeRepository  {
     fun getAllRecentSkinAnalyze(): Flow<ApiStatus<List<DiseaseDetectionResponse>>>
     fun uploadSkinAnalyze(
         fileUri: Uri,
-    ): Flow<ApiStatus<DiseaseDetectionResponse>>
+    ): Flow<ApiStatus<SkinAnalyzeResponse>>
 
     fun updateFavorite(favoriteRequest: FavoriteRequest): Flow<ApiStatus<FavoriteResponse>>
 }
@@ -48,7 +49,7 @@ class SkinAnalyzeRepositoryImpl(private val apiServices: ApiServices): SkinAnaly
     }
 
 
-    override fun uploadSkinAnalyze(fileUri: Uri): Flow<ApiStatus<DiseaseDetectionResponse>> = flow {
+    override fun uploadSkinAnalyze(fileUri: Uri): Flow<ApiStatus<SkinAnalyzeResponse>> = flow {
         try {
         emit(ApiStatus.Loading)
         val file = fileUri.toFile().reduceFileImage()
@@ -58,7 +59,7 @@ class SkinAnalyzeRepositoryImpl(private val apiServices: ApiServices): SkinAnaly
         )
         val response = apiServices.upload(multipartBody)
             if (!response.error) {
-                emit(ApiStatus.Success(response.data))
+                emit(ApiStatus.Success(response))
             } else {
                 emit(ApiStatus.Error("failed to analyze skin, skin disease not found"))
             }

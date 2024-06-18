@@ -11,7 +11,7 @@ data class SkinAnalyzeResponse(
 
     @Json(name = "data")
     val data: DiseaseDetectionResponse,
-)
+) : Serializable
 
 @JsonClass(generateAdapter = true)
 data class DiseaseDetectionResponse(

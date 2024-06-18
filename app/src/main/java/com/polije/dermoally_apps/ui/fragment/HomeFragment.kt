@@ -17,6 +17,7 @@ import com.polije.dermoally_apps.adapter.HomeAdapter
 import com.polije.dermoally_apps.adapter.MedicationAdapter
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.databinding.FragmentHomeBinding
+import com.polije.dermoally_apps.ui.view.ResultActivity
 import com.polije.dermoally_apps.ui.view.ScanPageActivity
 import com.polije.dermoally_apps.ui.viewmodels.HomeViewModel
 import com.polije.dermoally_apps.utils.showToast
@@ -38,7 +39,7 @@ class HomeFragment : Fragment() {
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        binding.imageView.setBackgroundResource(R.drawable.frame_transparent);
+        binding.imageView.setBackgroundResource(R.drawable.frame_profile);
         binding.imageView.setClipToOutline(true);
 
         binding.scanFace.setOnClickListener {
@@ -46,7 +47,9 @@ class HomeFragment : Fragment() {
         }
 
         adapter = HomeAdapter(emptyList()) {
-            showToast(requireContext(), it.diseaseDetection.overview)
+            val intent = Intent(requireContext(), ResultActivity::class.java)
+            intent.putExtra("result", it)
+            startActivity(intent)
         }
         medicationAdapter = MedicationAdapter(emptyList()) { medication ->
             val searchQuery = "produk+yang+mengandung+${medication.name}"

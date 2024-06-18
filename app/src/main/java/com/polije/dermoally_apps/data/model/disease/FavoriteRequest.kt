@@ -1,11 +1,11 @@
 package com.polije.dermoally_apps.data.model.disease
 
-import retrofit2.http.Field
+import com.squareup.moshi.Json
 
 data class FavoriteRequest (
-    @Field("id_analyze")
-    val username: String,
+    @Json(name = "id_analyze")
+    val idAnalyze: String,
 
-    @Field("value")
+    @Json(name = "value")
     val value: Int
 )

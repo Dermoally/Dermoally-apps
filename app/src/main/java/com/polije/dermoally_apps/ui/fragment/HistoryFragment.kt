@@ -1,5 +1,6 @@
 package com.polije.dermoally_apps.ui.fragment
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +19,7 @@ import com.polije.dermoally_apps.R
 import com.polije.dermoally_apps.adapter.SkinAnalyzeAdapter
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.databinding.FragmentHistoryBinding
+import com.polije.dermoally_apps.ui.view.ResultActivity
 import com.polije.dermoally_apps.ui.viewmodels.HistoryViewModel
 import com.polije.dermoally_apps.utils.showToast
 
@@ -35,7 +37,9 @@ class HistoryFragment : Fragment() {
         val root: View = binding.root
 
         skinAnalyzeAdapter = SkinAnalyzeAdapter(emptyList()) {
-            showToast(requireContext(), it.diseaseDetection.overview)
+            val intent = Intent(requireContext(), ResultActivity::class.java)
+            intent.putExtra("result", it)
+            startActivity(intent)
         }
 
         binding.recyclerView.layoutManager = LinearLayoutManager(context)

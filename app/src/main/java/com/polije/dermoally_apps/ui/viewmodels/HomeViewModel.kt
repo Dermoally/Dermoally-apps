@@ -25,7 +25,7 @@ class HomeViewModel(private val userRepository: UserRepository, private val repo
 
     fun getRecentResult() {
         viewModelScope.launch {
-            repository.getAllSkinAnalyze().collect {
+            repository.getAllRecentSkinAnalyze().collect {
                 _recentResult.value = it
             }
         }

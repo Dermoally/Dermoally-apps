@@ -6,14 +6,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.polije.dermoally_apps.data.model.disease.DiseaseDetectionResponse
+import com.polije.dermoally_apps.data.model.disease.SkinAnalyzeResponse
 import com.polije.dermoally_apps.data.network.ApiStatus
 import com.polije.dermoally_apps.data.repository.SkinAnalyzeRepository
 import kotlinx.coroutines.launch
 
 class SkinAnalyzeViewModel(private val repository: SkinAnalyzeRepository): ViewModel() {
     private val _uploadSkinAnalyzeResult =
-        MutableLiveData<ApiStatus<DiseaseDetectionResponse>>()
-    val uploadSkinAnalyzeResult: LiveData<ApiStatus<DiseaseDetectionResponse>> =
+        MutableLiveData<ApiStatus<SkinAnalyzeResponse>>()
+    val uploadSkinAnalyzeResult: LiveData<ApiStatus<SkinAnalyzeResponse>> =
         _uploadSkinAnalyzeResult
 
     fun uploadSkinAnalyze(

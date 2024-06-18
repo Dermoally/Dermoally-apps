@@ -29,7 +29,7 @@ const val NAME_KEY: String = "auth_name"
 
 //punya fawa
 //const val API_URL = "http://192.168.46.87:9000/"
-const val API_URL = "https://9662-103-160-182-109.ngrok-free.app/"
+const val API_URL = "https://8cd4-2400-9800-9b3-d19c-f458-72ff-b364-d195.ngrok-free.app/"
 
 fun showToast(context: Context, message: String) {
     Toast.makeText(context, message, Toast.LENGTH_LONG).show()
