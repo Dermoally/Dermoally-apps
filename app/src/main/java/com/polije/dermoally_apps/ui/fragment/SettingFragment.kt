@@ -56,6 +56,7 @@ class SettingFragment : Fragment() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             requireActivity().finish()
+            showToast(requireContext(), "You have successfully logged out")
         }
 
         initObserve()

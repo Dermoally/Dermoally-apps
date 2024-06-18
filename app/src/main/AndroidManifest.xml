@@ -17,11 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.view.DetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.view.EditProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".ui.view.OurTeamActivity"
             android:exported="false" />
@@ -33,7 +31,8 @@
             android:exported="false" />
         <activity
             android:name=".ui.view.DetailFavoriteActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".ui.view.ResultActivity"
             android:exported="false" />
@@ -46,10 +45,12 @@
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".ui.view.RegisterActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".ui.view.LoginActivity"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

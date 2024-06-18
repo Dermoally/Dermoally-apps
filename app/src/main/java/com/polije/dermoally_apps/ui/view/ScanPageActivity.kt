@@ -112,7 +112,7 @@ class ScanPageActivity : AppCompatActivity() {
                     is ApiStatus.Success -> {
                         binding.loadingOverlay.visibility = View.GONE
                         val intent = Intent(this@ScanPageActivity, ResultActivity::class.java)
-                        intent.putExtra("result", result.data)
+                        intent.putExtra("result", result.data.data)
                         startActivity(intent)
                     }
 

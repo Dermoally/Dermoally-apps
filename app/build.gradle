@@ -20,18 +20,12 @@ android {
     buildTypes {
         debug {
             buildConfigField(
-                    "String", "API_URL", "\"https://example.com/\""
-            )
-            buildConfigField(
-                    "String", "API_KEY", "\"\""
+                    "String", "API_URL", "\"https://dermoally-vvergznbcq-et.a.run.app/\""
             )
         }
         release {
             buildConfigField(
-                    "String", "API_URL", "\"https://example.com/\""
-            )
-            buildConfigField(
-                    "String", "API_KEY", "\"\""
+                    "String", "API_URL", "\"https://dermoally-vvergznbcq-et.a.run.app/\""
             )
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
